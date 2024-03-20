@@ -3,6 +3,7 @@ const http = require("http");
 const socketIo = require("socket.io");
 const { connect } = require("./db/connect");
 const userRouter = require("./routes/user");
+const taskRouter = require("./routes/task");
 
 const app = express();
 const PORT = 3002;
@@ -12,6 +13,7 @@ app.use(express.json());
 
 // Définition des routes
 app.use("/api/v1", userRouter);
+app.use("/api/v1", taskRouter);
 
 // Création du serveur HTTP
 const server = http.createServer(app);
